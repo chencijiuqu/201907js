@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+   <!-- 定时器 i = t - 5; <= t; -->
+   <div>0</div>
+   <div>1</div>
+   <div>2</div>
+   <div>3</div>
+   <div>4<p></p></div>
+   <div>5</div>
+   <div id="box6">6</div>
+   <div>7</div>
+   <div>8</div>
+   <div>9</div>
+<script>
+    /* 获取元素在兄弟元素的索引
+    获取所有的元素,然后再查找第几个 */
+    var box = document.getElementById("box6");
+    var f = box.parentElement;
+    var son = f.children;
+    for (var i = 0; i < son.length; i++) {
+        if (son[i] == box) {
+            console.log(i)
+        }
+    }
+</script>
+
+<script>
+
+</script>
+</body>
+</html>

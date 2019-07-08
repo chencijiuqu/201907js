@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>冒泡排序</title>
+</head>
+<body>
+    <script>
+        var ary = [12,4,23,25,88,66,56,37,89,70];
+        var ary = [1,2,3,4,5,6,7,8,9];
+        var ary = [43,45,12,33,44,1,2,3,4]
+        for (var k = 0; k < ary.length - 1; k++) { // length -> 10，解决9项，另一项不用比
+            if (ary[k] < ary[k + 1]) {
+                continue; // 这样只能比相邻两项，但是比不了它后面的多项
+            } else {
+                for (var i = 0; i < ary.length - (1 + k); i++) {
+                    if (ary[i] > ary[i + 1]) {
+                        var item = ary[i];
+                        ary[i] = ary[i + 1];
+                        ary[i + 1] = item;
+                    }
+                }
+            }
+        }
+        console.log(ary);
+        /**优化：
+         * 1. ary.length-1(i)
+         * 2. ary.length-1-j
+         * 3. ary.length-1(k) 能少跑一次外层循环
+         * 4. 
+         * */
+    </script>
+
+    <script>
+        /* ary.sort(function (a,b) {
+        // 从小到大
+        return a-b;
+        });
+        console.log(ary);*/
+        //var ary = [12,4,25,88,66,56,37,89,70];
+        var ary =[12,32,45,67,76,78,80,87,89]
+        // 冒泡排序原理： 相邻两项进行比较，如果前面一项比后面一项大，则让这两项互换位置，如果前面比后面小，不进行交换；当循环一次之后将数组的最大值放到了数组的最后面；
+        for(var j=0;j<ary.length-1;j++){
+            var flag = true;
+            for(var i=0;i<ary.length-1-j;i++){
+                console.log(100);
+                if(ary[i]>ary[i+1]){
+                    var temp = ary[i];
+                    ary[i]=ary[i+1];
+                    ary[i+1]=temp;
+                    flag=false;
+                }
+            }
+            if(flag){
+                break;
+            }
+        }
+        console.log(ary);
+
+
+
+    </script>
+</body>
+</html>
+
+
+
+

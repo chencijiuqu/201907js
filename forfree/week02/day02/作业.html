@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>搜索框</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+        input {
+            margin: 0 auto;
+            font-size: 28px;
+        }
+        button {
+            background: lightgreen;
+            border: 0.5px solid black;
+            font-size: 28px;
+            color: white
+        }
+        li {
+            font-size: 28px;
+            width: 500px;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <input type="text" name="text">
+    <ul id="ulList">
+        <!-- <li>
+        这是第xx个行
+        <button>删除</button>
+        </li> -->
+    </ul>
+    <div id="box" class="box"></div>
+<script>
+ /**作业：
+ * 1. input，按回车，新增li，li里放入input的内容。并且input内清空。每个li再准备一sdsvscssc zxzcqdsf sbv xvc sAZzzz个button，删除全部li。li隔行变色，鼠标滑入事件
+ * onblur
+ */
+var ulList = document.getElementById("ulList");
+var text = document.getElementsByName("text")[0];
+var btn = document.getElementsByTagName("button");
+var liList = ulList.getElementsByTagName("li");
+text.onkeydown = function (e) {
+        if (e.keyCode === 13) {
+        var li = document.createElement("li");
+        ulList.appendChild(li);
+        li.innerHTML = `<button>删除</button>${this.value}`;
+        this.value = null;
+        for (var i = 0; i < liList.length; i++) {
+            liList[i].index = i;
+            liList[i].style.backgroundColor = (i % 2 === 0) ? "paleturquoise" : "palegoldenrod";
+            liList[i].onmouseover = function () {
+                this.style.backgroundColor = "pink";
+            }
+            liList[i].onmouseout = function () {
+                this.style.backgroundColor = ( this.index % 2 === 0) ? "paleturquoise" : "palegoldenrod";
+            }
+            btn[i].onclick = function () {
+                    var list = this.parentNode;
+                    ulList.removeChild(list);
+            }
+        }
+    }
+}
+</script>
+</body>
+</html>

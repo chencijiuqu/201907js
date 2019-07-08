@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>递归</title>
+</head>
+<body>
+    <script>
+        // 在函数体内部调用函数本身，每执行一次都会重新调用一次函数。 这种函数执行现象就是函数的递归
+        function fn() {
+
+            consol.log(fn);
+            fn(); // 死循环
+        }
+        fn();
+
+
+        // 在递归函数中，一般都会有函数的终止条件
+        var a = 1;
+        function fn() {
+            a++;
+            if(a > 100) {
+                return;
+            };
+            fn();
+        }
+        fn();
+
+
+        // 1. 求 1 - 100 之间能被3整除的和
+function fn(num) {
+    if ( num === 1) {
+        return 0; // 如果不写 0 ，那么 num 1的时候就是undefined。 跟前面数相加就会 NaN
+    }
+    if (num % 3 === 0) {
+        return num + fn(num - 1); // 不加 return undefined
+        // undefined + undefined + undefined + undefined...
+        // 99 + num(98)
+    } else {
+        return  fn(num - 1); // 不加 return undefined
+        // undefined 因为实参是一百，所以返回值是一百的返回值,但是一百没有返回值。所以undefined
+        // 1683 加了return 那么 (99 + 96 + 93 ...)的和就是100的值
+    }
+}
+fn(100); // 1683
+
+// 求 1 - 100 之间能被3整除和4整除的和
+function fn(num) {
+    if (num > 100) {
+        return 0;
+    }
+    if(num % 3 === 0 && num % 4 === 0) {
+        return num + fn(num + 1);
+    } else {
+        return fn(num + 1);
+    }
+};
+fn(1);
+
+var total = 0;
+for (var i = 1; i < 101; i++) {
+    if(i % 3 === 0 && i % 4 === 0) {
+        total += i;
+    }
+}
+console.log(total)
+</script>
+</body>
+</html>

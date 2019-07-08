@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    // 1. 数组方法原理
+    // 2.研究十个算法
+    <div class="box">
+        <p id="licensePlate"></p>
+        <input type="button" value="摇号" id="btn"/>
+    </div>
+<script>
+/* 1、车牌号开始必须是： 京A、京B、京C、京E、京F、京G、京H、京 J、京K （没有D和I）   
+2、车牌号是五位，分别由26个大写字母 和0~9十个数字 组成   
+3、当用户点击页面上的摇号按钮，你编写的程序给用户随机生成 一个车牌号，用户感觉不满意，还可以重新摇号，但是最多只能摇 三次 */
+var i = 0;
+btn.onclick = function () {
+    if (i >= 3) {
+        return alert("您已摇号超过三次");
+    }
+        ++i;
+
+        // 车牌号前面
+        var str = "ABCEFGHJK";
+        var ran = Math.round(Math.random() * 8);
+        var letter = str[ran];
+        var area = "京" + letter;
+        // 车牌号后面
+        var rear = "QWERTYUIOPLKJHGFDSAZXCVBNM0123456789";
+        var box = "";
+        var box1 = ""
+        for (var i = 0; i < 2; i++) {
+            var num = Math.round(Math.random() * 25);
+            var len = rear[num];
+            box += len
+        }
+        for (var i = 0; i < 3; i++) {
+            var num1 = Math.round(Math.random() * (35 - 26) + 26);
+            var len1 = rear[num1];
+            box1 += len1
+        }
+        licensePlate.innerHTML = area + box + box1;
+}
+
+
+
+
+/* // 找到所有哥哥
+var box = document.getElementById('box');
+var previous = box.previousElementSibling;
+var fase = previous.parentNode;
+var ary =[];
+while(previous) {
+    if (previous === null) {
+        break;
+    } else {
+        var previous = box.previousElementSibling;
+        var i = 0;
+        ary[i] = previous;
+        i++
+    }
+}
+console.log(ary) */
+</script>
+</body>
+</html>
+

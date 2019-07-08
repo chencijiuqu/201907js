@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>随机验证码</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        .box {
+            width: 300px;
+            height: 100px;
+            border: 1px dotted red;
+            margin: 30px auto;
+            font-size: 50px;
+            text-align: center;
+            line-height: 100px;
+            color: white;
+            background: gold;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <div id="box" class="box"></div>
+    <script>
+        var box = document.getElementById("box");
+        var ary = ["京A","京B","京C","京N","京M","京L"];
+        var str1 = "";
+        function num() {
+            var str ="ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
+            // 0 - 61,总共62个字符
+            var newStr = "";
+
+            for (var i = 0; i < 4; ) {
+                var curStr = `${str[index]}`;
+                var index = Math.round(Math.random() * 61);
+                if (newStr.toUpperCase().indexOf(curStr.toUpperCase()) === -1) {
+                    newStr += str[index];
+                    i++;
+                }
+            }
+            box.innerText = newStr;
+        }
+        num()
+        box.onclick = num;
+        // box.onclick(); // 可以触发点击事件
+    </script>
+</body>
+</html>

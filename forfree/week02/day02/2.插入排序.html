@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>插入排序</title>
+</head>
+<body>
+    算法目的：培养编程思想
+    [22,45,12,4,89,65,44,59,22];
+   <!--  <script>
+        var ary = [12,3,90,80,56,76,66];
+        var newAry = [];
+        newAry.push(ary[0]);
+        for (var i = 1; i < ary.length; i++) {
+            var cur = ary[i];
+            for (var j = newAry.length - 1; j >= 0; j--) {
+                if (cur < newAry[j]) {
+                    newAry.unshift(cur);
+                    break;
+                } else {
+                    newAry.splice(j + 1,0,cur);
+                    break;
+                }
+            }
+        }
+        console.log(ary);
+        console.log(newAry)
+    </script> -->
+
+    <script>
+    // 作业：实现插入排序(从前往后比)
+        var ary = [22,45,12,4,89,65,44,59,22];
+        var newAry = [];
+        newAry.push(ary[0]);
+        for (var i = 1; i < ary.length; i++) {
+            for (var k = 0; k < newAry.length; k++) {
+                if (newAry[k] > ary[i]) {
+                    console.log(newAry)
+                    newAry.unshift(ary[i]);
+                } else if (ary[i] < newAry[k + 1]) {
+                    newAry.push(ary[i])
+                        continue;
+                }
+            }
+        }
+        console.log(ary,newAry)
+    </script>
+</body>
+</html>

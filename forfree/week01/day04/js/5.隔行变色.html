@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>隔行变色</title>
+    <style >
+        *{
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+        #list li{
+            width: 600px;
+            height: 50px;
+            line-height: 50px;
+            text-align: center;
+            font-size: 18px;
+            border: 1px dashed red;
+            margin: 0px auto;
+            cursor: pointer;
+            color: orange
+        };
+        #list li.bg {
+           background: yellow;
+        }
+        #list li.bg1 {
+           background: red;
+        }
+        #list li.bg3 {
+            background: blue;
+        }
+    </style>
+</head>
+<body>
+    <ul id="list">
+        <li>陈粒新歌：四海</li>
+        <li>陈粒新专辑：玩</li>
+        <li>陈粒新歌：四海</li>
+        <li>陈粒新专辑：玩</li>
+        <li>陈粒新歌：四海</li>
+        <li>陈粒新专辑：玩</li>
+        <li>陈粒新歌：四海</li>
+        <li>陈粒新专辑：玩</li>
+        <li>陈粒新歌：四海</li>
+        <li>陈粒新专辑：玩</li>
+        <li>陈粒新歌：四海</li>
+        <li>陈粒新专辑：玩</li>
+        <li>陈粒新歌：四海</li>
+        <li>陈粒新专辑：玩</li>
+        <li>陈粒新歌：四海</li>
+        <li>陈粒新专辑：玩</li>
+        <li>陈粒新歌：四海</li>
+        <li>陈粒新专辑：玩</li>
+    </ul>
+</body>
+<script>
+    // 元素是对象,this也是对象
+    var list = document.getElementById('list');
+    var liList = list.getElementsByTagName("li");
+    for (var i = 0; i < liList.length; i++) {
+        if ( i % 2 === 0) {
+            liList[i].style.backgroundColor = "red";
+        } else {
+            liList[i].style.backgroundColor = "yellow";
+        }
+        liList[i].oldbg = liList[i].style.backgroundColor;
+        liList[i].onmouseover = function () {
+            this.style.backgroundColor = "blue";
+        }
+        liList[i].onmouseout = function () {
+          this.style.backgroundColor = this.oldbg;
+        }
+    }
+</script>
+</html>

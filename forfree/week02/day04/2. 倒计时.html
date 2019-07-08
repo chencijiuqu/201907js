@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>倒计时</title>
+    <style>
+        #time {
+            width: 400px;
+            height: 100px;
+            border: 1px solid yellowgreen;
+            border-radius: 5px;
+            margin: 30px auto;
+            text-align: center;
+            font-size: 50px;
+            color: gold;
+            line-height: 100px;
+        }
+    </style>
+</head>
+<body>
+    <div id="time"></div>
+<!-- <script>
+// 开发基础：需求 ===> 分析 ===> 思路 ===> 代码
+var time = document.getElementById("time");
+var targetTime = new Date("2019/07/05 17:00:00");
+function countDown() {
+    var hours = targetTime.getHours() - new Date().getHours() - 1;
+    var minutes = 60 - new Date().getMinutes() - 1;
+    var seconds = 60 - new Date().getSeconds() - 1;
+    time.innerHTML = addZero(hours) + ":" + addZero(minutes) +":" + addZero(seconds)
+};
+countDown();
+var timer = setInterval(countDown,1000);
+function addZero(val) {
+    return val < 10 ? "0" + val:val;
+};
+</script> -->
+<script>
+    var time = document.getElementById("time");
+    var targetTime = new Date("2019/07/05 13:00:00");
+    function countDown () {
+        var currentTime = new Date();
+        var difTime = targetTime - currentTime;
+        var hours = Math.floor(difTime / (60 * 60 * 1000));
+        var minutes = Math.floor((difTime - hours * 1000 * 60 * 60)/ (60 * 1000));
+        var seconds = Math.floor((difTime - (hours * 1000 * 60 * 60) - (minutes * 60 * 1000)) / 1000);
+        time.innerHTML = addZero(hours) + ":" + addZero(minutes) +":" + addZero(seconds)
+        if (difTime <= 0) {
+            clearInterval(timer);
+            time.innerHTML = "00:00:00";
+        }
+    }
+    var timer = setInterval(countDown,1000);
+    function addZero(val) {
+    return val < 10 ? "0" + val:val;
+    };
+</script>
+</body>
+</html>

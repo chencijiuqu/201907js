@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        .box {
+            width: 400px;
+            height: 100px;
+            border: 1px solid yellowgreen;
+            border-radius: 5px;
+            margin: 30px auto;
+            text-align: center;
+            font-size: 50px;
+            color: gold;
+            line-height: 100px;
+        }
+    </style>
+</head>
+<body>
+    <div id="first" class="box"></div>
+    <div class="box" id="box"></div>
+    <div id="box3" class="box"></div>
+<script>
+       var first = document.getElementById("first")
+   var second = document.getElementById("second")
+   var third = document.getElementById("third")
+    function countDown(box,targetTime) {
+        var currentTime = new Date();
+        var difTime = targetTime-currentTime;
+        if(difTime<=0){
+            clearInterval(t);
+            return;
+        }
+        var hours = Math.floor(difTime/(1000*60*60));
+        var minutes =Math.floor((difTime-hours*1000*60*60)/(1000*60));
+        var seconds = Math.floor((difTime-hours*1000*60*60-minutes*1000*60)/1000)
+        var  millSeconds = difTime%1000;
+        box.innerHTML = addZero(hours)+":"+addZero(minutes)+":"+addZero(seconds)+":"+addZero(millSeconds);
+        time(box,targetTime);
+    }
+    function addZero(val) {
+        return val<10?"0"+val:val;
+    }
+    function time (ele,time) {
+        setInterval(countDown,100,ele,time)
+    }
+    countDown(first,new Date("2019/07/06 12:00:00"));
+    countDown(box,new Date("2019/07/06 13:00:00"));
+    
+</script>
+</body>
+</html>

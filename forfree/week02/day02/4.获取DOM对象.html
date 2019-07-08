@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    鼹鼠
+    1.document.getElementById
+    2. id名可以直接使用，不用获取
+    // document: 上下文
+    // get: 获取得到
+    // Element: 文档、元素
+    // By： 通过
+    // id ： ID名
+    document.querySelectorAll(".box")[0];
+    document.querySelectorAll("#a"); // 也是一个类数组集合
+    //如果我用querySelectorAll这个前面还是必须用document吗
+    document.querySelectorAll("div")[0];
+    <div id="box">
+        <p id="p1"></p>
+    </div>
+    <script>
+        var box =document.getElementById("box");
+        var p = box.getElementById("p1");
+        console.log(p)
+    </script>
+</body>
+</html>

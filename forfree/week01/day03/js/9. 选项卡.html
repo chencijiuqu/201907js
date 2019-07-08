@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>选项卡</title>
+    <style type="text/css">
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        #tab{
+            width:400px;
+            height:280px;
+            margin: 100px auto;
+        }
+        ul{
+            list-style: none;
+            overflow: hidden;
+        }
+        ul li{
+            float:left;
+            width:80px;
+            height:40px;
+            text-align: center;
+            line-height: 40px;
+            border: 1px solid pink;
+            margin-right:3px;
+            cursor: pointer;
+        }
+        
+        ul li.select{
+            background: blue;
+            color:white;
+        }
+
+       #tab div{
+           display: none;
+           width:400px;
+           height:280px;
+           border:1px solid pink;
+           text-align: center;
+           line-height: 280px;
+       }
+        #tab div.select{
+            display: block;
+            color:blue;
+            background: palegreen
+        }
+    </style>
+
+</head>
+<body>
+    <!-- 作业：封装选项卡 -->
+    <div id="tab" class="tab">
+        <ul id="header" class="header">
+            <li class="active">综艺</li>
+            <li>音乐</li>
+            <li>电影</li>
+        </ul>
+        <div class="select">蔡徐坤：我们很爷们儿</div>
+        <div>李晨范冰冰：分手也要对对联</div>
+        <div>双宋夫妇：我们和平离婚！</div>
+    </div>
+    <script>
+        let tabBox = document.getElementById('tab');
+        let ulBox = document.getElementById('header');
+        let liList = ulBox.getElementsByTagName('li'); // HTMLCollection 元素集合
+        // 在Js中获取到的每一个元素都是对象数据类型的
+        let tabList = tabBox.getElementsByTagName('div');
+        for (var i = 0; i < liList.length; i++) {
+            liList[i].onclick = function () {
+                liList[i].index = i;
+                for (var j = 0; j < liList.length; i++) {
+                    liList[j].className = "";
+                    tabList[j].className = "";
+                }
+                // this -> 这个； 关键字。在JS中有特殊的意义
+                this.className = "select";
+                console.log(this)
+            }
+    }
+    </script>
+</body>
+</html>

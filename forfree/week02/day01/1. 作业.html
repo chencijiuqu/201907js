@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <input type="text" id="put">
+    <button type="btn" id="btn"></button>
+    <script>
+        var text = document.getElementById("put");
+        var btn = document.getElementById("btn");
+        // onkeydown onkeyup onkeypress     onblur 失焦
+        // onkeydown 是获取键盘按下上次的值，onkeyup是获取键盘按下本次的值
+        text.onkeyup = function () {
+            if (this.value === "陈粒") {
+                console.log("true")
+                // innerHTML会自动转字符串
+                btn.innerHTML = "true";
+            }
+            if (this.value === "陈粒好看吗") {
+                btn.innerHTML = "真的"
+            }
+        }
+    </script>
+</body>
+</html>

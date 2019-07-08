@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>选项卡</title>
+    <style>
+        *{
+            padding: 0;
+            margin: 0;
+            list-style: none;
+        }
+        .tab {
+            width: 600px;
+            height: 300px;
+            margin: 50px auto;
+        }
+        .tab .header {
+            overflow: hidden;
+        }
+        .header li {
+            width: 191px;
+            height: 40px;
+            float: left;
+            border: 1px solid palegreen;
+            margin-right: 3px;
+            text-align: center;
+            line-height: 40px;
+        }
+        .tab div {
+            width: 600px;
+            height: 260px;
+            border: 1px solid paleturquoise;
+            line-height: 260px;
+            text-align: center;
+            display: none;
+        }
+        .header li.active {
+            background: palegreen;
+            color: gold
+        }
+        .tab .active {
+            display: block;
+            background: paleturquoise;
+            color: yellowgreen;
+        }
+    </style>
+</head>
+<body>
+    <div id="tab" class="tab">
+            <ul class="header" id="header">
+                <li class="active">综艺</li>
+                <li>电影</li>
+                <li>音乐</li>
+            </ul>
+            <div class="active">蔡徐坤:我们真爷们儿</div>
+            <div>《大护法》票房突破十亿</div>
+            <div>陈粒新歌：四海</div>
+    </div>
+    <div id="tab2" class="tab">
+        <ul id="header2" class="header">
+            <li class="active">菜</li>
+            <li>虚</li>
+            <li>坤</li>
+        </ul>
+        <div class="active">菜无极限</div>
+        <div>虚了？就吃肾宝片！</div>
+        <div>你打篮球的样子真像坤坤！</div>
+    </div>
+    <div id="tab3" class="tab">
+            <ul id="header3" class="header">
+                <li class="active">菜</li>
+                <li>虚</li>
+                <li>坤</li>
+            </ul>
+            <div class="active">菜无极限</div>
+            <div>虚了？就吃肾宝片！</div>
+            <div>你打篮球的样子真像坤坤！</div>
+        </div>
+    <script>
+        /**选项卡思路
+         * 1. 获取元素
+         * 2. 添加绑定事件 (先循环给所有的li添加绑定事件)
+         * 3. 给所有的li清除类名 (在点击事件里面添加一个for循环然后清除所有的类名)
+         * 4. 给点击的li增加类名 (在点击事件里面增加类名)
+         * 注意：在第四步的时候我们应该在点击事件外保存i的值，然后div的索引可以使用i的值
+        */
+        let tabList = document.querySelectorAll('#tab > div');
+        let liList = document.querySelectorAll('#header > li');
+        let tabList2 = document.querySelectorAll('#tab2 > div');
+        let liList2 = document.querySelectorAll('#header2 > li');
+        let tabList3 = document.querySelectorAll('#tab3 > div');
+        let liList3 = document.querySelectorAll('#header3 > li');
+        function tab(list,tab) {
+            for (var i = 0; i < list.length; i++) {
+                list[i].index = i;
+                list[i].onclick = function () {
+                    var l = []
+                    for (var k = 0; k < list.length; k++) {
+                        list[k].className = "";
+                        tab[k].className = "";
+                    }
+                    this.className = "active";
+                    tab[this.index].className = "active";
+                }
+            }
+        };
+        tab(liList,tabList);
+        tab(liList2,tabList2);
+        tab(liList3,tabList3);
+    </script>
+</body>
+</html>

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    
+    <!-- <div id="box"><p>innerHTML和innerText的区别</p></div> -->
+    <input type="text" id="input">
+    <input type="button" value="true" id="btn">
+    <!-- <script>
+/**
+ * 1. 准备input框 然后跟按钮 显示true 
+ * 2. 再input输入内容 显示false
+ */
+        var input = document.getElementById("input");
+        var btn = document.getElementById('btn');
+        input.oninput = function () {
+            btn["value"] = "陈粒新歌真好听";
+            console.log(btn["value"])
+        }
+        input.onblur = function () {
+            btn["value"] = "陈粒真好看";
+            console.log(btn["value"])
+        }
+       /*  var box = document.getElementById("box");
+        // 获取和修改当前元素标签中的文本内容
+        console.log(box.innerHTML);
+        console.log(box.innerText);
+        box.innerHTML += "<a href = 'https://www.baidu.com'>百度一下</a>";
+        box.innerText += "<a href = 'https://www.baidu.com'>百度一下</a>"; */
+    </script -->
+    <script>
+        // 在文本框输入字,在按钮框显示true和false
+            var text = document.getElementById('input');
+            let btn = document.getElementById('btn');
+            console.log(text["value",121])
+           
+            text.onkeyup = function () {
+                if (text["value"] == undefined || text["value"] == "") {
+                    btn["value"] = "true";
+                    text['value'] = "";
+                } else if (text["value"] !== undefined) {
+                    btn["value"] = "false";
+                }
+            }
+    </script>
+</body>
+</html>

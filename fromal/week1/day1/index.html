@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    var obj = {
+        y:10,
+        t:(function () {
+            console.log(y)
+        })()
+    }
+    var k = 0;
+    var timer = setInterval(function () {
+        k++;
+        var total = "";
+        for (var i = 0; i < 4; i++) {
+            var ran = Math.round(Math.random() * 9);
+            if (total.indexOf(ran) === -1) {
+                total += ran;
+            } else {
+                i--;
+            }
+        }
+        console.log(total);
+        if(k === 10) {
+            clearInterval(timer);
+        }
+    },1000)
+    
+</script>
+</body>
+</html> 

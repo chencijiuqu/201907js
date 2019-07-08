@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>复习</title>
+</head>
+<body>
+<script>
+    // ES6新增：``;
+    var  url = "https://www.baidu.com/s?wd=京东&rsv_spt=1&rsv_iqid=0xdd505e6a000043df&issp=1"
+
+function queryUrl(url) {
+    var cur =url.substring(url.indexOf("?") + 1);
+    var ary = cur.split("&").toString().split("=").toString().split(",");
+    var obj = {};
+    for (var i = 0; i < ary.length; i++) {
+        obj[ary[i]] = ary[++i];
+    }
+    return obj;
+};
+queryUrl(url);
+</script>
+</body>
+</html>

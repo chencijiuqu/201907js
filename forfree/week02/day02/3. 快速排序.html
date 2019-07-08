@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+<script>
+    // 递归：函数中的自循环
+    var cer = [60,45,66,78,62,56,35,88,68];
+    function quickSort(ary) {
+        if(ary.length <= 1) {
+            return ary;
+        }
+        var middleIndex = Math.floor(ary.length/2);
+        var middle = ary.splice(middleIndex,1)[0];
+        var left = [];
+        var right = [];
+        for (var i = 0; i < ary.length; i++) {
+            var cur = ary[i];
+            if (cur < middle) left.push(cur);
+            if(cur >= middle) right.push(cur);
+        }
+        return quickSort(left).concat(middle,quickSort(right));
+    }
+    quickSort(cer);
+</script>
+</body>
+</html>

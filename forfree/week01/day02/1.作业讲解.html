@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+        数据类型：
+            数字 == 字符串：字符串转 number
+            数字 == 布尔： 0 / 1
+            数字 == 对象 ：永远不相等
+            对象 == 对象：除堆内存空间地址相等以外其他都不相等
+            对象 == 字符串：除"[object Object]"其他都不相等
+            对象 == 布尔值：永远不相等
+            布尔 == 字符串：字符串里面的值是 0/1才有可能相等
+            NaN == NaN 永远不相等
+            null == undefined true
+
+            !"3px" == true; // false
+            !"3px" 直接不需要进行任何数据类型的比较；是直接转成布尔值
+
+            JS 中遇到{}、[] 都会开辟新的空间地址
+
+        ||：如果前面是 true，直接取前面的值。如果前面的是false就取后面的值。如果两false取后面的值
+
+
+<script>
+for(var i=3;i<13;i++){
+    if(i<3){
+        i++;
+        break;
+    }
+    if(i>9){
+        i+=2;
+        continue;
+    }
+    i++;
+}
+console.log(i)
+
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<script>
+let ary4 = [1,2,45,56,66];
+Array.prototype.myShift = function() {
+    for (let i = 0; i < arguments.length; i++) {
+        this[this.length] = arguments[i];
+    }
+    this.length--;
+    return this.length;
+}
+let ary5 = ary4.myShift();
+console.log(ary5);
+console.log(ary4);
+
+</script>
+</body>
+</html>
